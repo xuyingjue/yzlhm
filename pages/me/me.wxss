@@ -1,0 +1,142 @@
+.container {
+  padding: 20rpx;
+}
+
+/* 用户信息头 */
+.user-header {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+}
+
+.user-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  margin-right: 24rpx;
+  border: 4rpx solid white;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.user-id {
+  font-size: 26rpx;
+  color: var(--light-text);
+}
+
+.edit-btn {
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: white;
+  color: var(--secondary-color);
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  padding: 0;
+}
+
+/* 功能入口网格 */
+.function-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+  margin-bottom: 24rpx;
+}
+
+.function-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx;
+  background-color: white;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(145, 213, 255, 0.08);
+}
+
+.function-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 16rpx;
+  color: var(--secondary-color);
+}
+
+.function-name {
+  font-size: 28rpx;
+  color: var(--text-color);
+}
+
+/* 店铺管理入口 */
+.shop-manage-entry {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.manage-icon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 24rpx;
+  color: var(--secondary-color);
+}
+
+.manage-info {
+  flex: 1;
+}
+
+.manage-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 4rpx;
+}
+
+.manage-desc {
+  font-size: 24rpx;
+  color: var(--light-text);
+}
+
+.arrow-icon {
+  width: 36rpx;
+  height: 36rpx;
+  color: var(--light-text);
+}
+
+/* 数据统计 */
+.stats-container {
+  margin-bottom: 24rpx;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  padding: 24rpx 0;
+}
+
+.stats-item {
+  padding: 0 16rpx;
+}
+
+.stats-value {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.stats-name {
+  font-size: 26rpx;
+  color: var(--light-text);
+}

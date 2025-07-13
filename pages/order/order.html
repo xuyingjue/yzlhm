@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依狸窝 - 订单</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/pages/order/order.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="/imgres/logo.png" alt="依狸窝">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/pages/shop/shop.html">点单</a></li>
+                <li><a href="/pages/cart/cart.html">购物车</a></li>
+                <li class="active"><a href="/pages/order/order.html">订单</a></li>
+                <li><a href="/pages/mystore/mystore.html">我的店铺</a></li>
+                <li><a href="/pages/me/me.html">我的</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面内容 -->
+    <div class="container">
+        <!-- 订单流程步骤 -->
+        <div class="order-process">
+            <div class="process-step active" data-step="0">
+                <div class="step-icon">1</div>
+                <div class="step-text">套餐选择</div>
+            </div>
+            <div class="process-line"></div>
+            <div class="process-step" data-step="1">
+                <div class="step-icon">2</div>
+                <div class="step-text">扫码支付</div>
+            </div>
+            <div class="process-line"></div>
+            <div class="process-step" data-step="2">
+                <div class="step-icon">3</div>
+                <div class="step-text">凭证上传</div>
+            </div>
+            <div class="process-line"></div>
+            <div class="process-step" data-step="3">
+                <div class="step-icon">4</div>
+                <div class="step-text">信息填写</div>
+            </div>
+        </div>
+
+        <!-- 步骤内容区域 -->
+        <div class="step-content">
+            <!-- 1. 套餐选择 -->
+            <div class="step-panel active" data-step="0">
+                <div class="package-list">
+                    <div class="package-item card" data-id="1" data-price="99.00">
+                        <h3>基础套餐</h3>
+                        <p>包含3次服务，有效期30天</p>
+                        <div class="package-price">¥99.00</div>
+                        <div class="radio-btn"></div>
+                    </div>
+                    <div class="package-item card" data-id="2" data-price="199.00">
+                        <h3>高级套餐</h3>
+                        <p>包含8次服务，有效期60天</p>
+                        <div class="package-price">¥199.00</div>
+                        <div class="radio-btn"></div>
+                    </div>
+                    <div class="package-item card" data-id="3" data-price="299.00">
+                        <h3>尊享套餐</h3>
+                        <p>包含15次服务，有效期90天</p>
+                        <div class="package-price">¥299.00</div>
+                        <div class="radio-btn"></div>
+                    </div>
+                </div>
+                <button class="next-btn btn-blue" id="packageNext">下一步</button>
+            </div>
+
+            <!-- 2. 扫码支付 -->
+            <div class="step-panel" data-step="1">
+                <div class="payment-container">
+                    <div class="qr-code">
+                        <img src="/imgres/payment-qr.png" alt="支付二维码">
+                        <div class="qr-tip">请使用微信扫码支付</div>
+                        <div class="countdown">300秒后过期</div>
+                    </div>
+                    <div class="payment-info">
+                        <p>套餐：<span id="paymentPackageName">基础套餐</span></p>
+                        <p>金额：<span id="paymentAmount">¥99.00</span></p>
+                        <div class="upload-tip">支付完成后请上传凭证</div>
+                    </div>
+                </div>
+                <button class="next-btn btn-blue" id="paymentNext">上传凭证</button>
+            </div>
+
+            <!-- 3. 凭证上传 -->
+            <div class="step-panel" data-step="2">
+                <div class="upload-container">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon"></div>
+                        <div class="upload-text">点击上传支付凭证</div>
+                        <input type="file" class="upload-input" accept="image/*">
+                    </div>
+                    <div class="preview-container" id="previewContainer"></div>
+                    <div class="upload-tip">支持jpg、png格式，大小不超过2MB</div>
+                </div>
+                <button class="next-btn btn-blue" id="uploadNext">填写信息</button>
+            </div>
+
+            <!-- 4. 信息填写 -->
+            <div class="step-panel" data-step="3">
+                <form class="info-form" id="infoForm">
+                    <div class="form-group">
+                        <label>联系人</label>
+                        <input type="text" name="contact" placeholder="请输入联系人姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话</label>
+                        <input type="tel" name="phone" placeholder="请输入联系电话" required>
+                    </div>
+                    <div class="form-group">
+                        <label>联系地址</label>
+                        <textarea name="address" placeholder="请输入详细地址" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>备注信息</label>
+                        <textarea name="remark" placeholder="请输入备注信息（选填）"></textarea>
+                    </div>
+                </form>
+                <button class="submit-btn btn-blue" id="submitOrder">提交订单</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/pages/order/order.js"></script>
+    <script src="/js/dataManager.js"></script>
+</body>
+</html>

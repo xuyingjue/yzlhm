@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依狸窝 - 我的店铺</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/pages/mystore/mystore.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="/imgres/logo.png" alt="依狸窝">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/pages/shop/shop.html">点单</a></li>
+                <li><a href="/pages/cart/cart.html">购物车</a></li>
+                <li><a href="/pages/order/order.html">订单</a></li>
+                <li class="active"><a href="/pages/mystore/mystore.html">我的店铺</a></li>
+                <li><a href="/pages/me/me.html">我的</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面内容 -->
+    <div class="container">
+        <div class="page-title">我的店铺</div>
+
+        <!-- 店铺已开通状态 - 管理界面 -->
+        <div class="shop-management" style="display:block;">
+            <!-- 店铺信息卡片 -->
+            <div class="shop-info-card card">
+                <img src="/imgres/logo.png" class="shop-logo">
+                <div class="shop-details">
+                    <h2 class="shop-name">我的店铺</h2>
+                    <div class="status-indicator green"></div>
+                </div>
+            </div>
+
+            <!-- 四宫格功能入口 -->
+            <div class="function-grid">
+                <div class="function-item card" id="publishGoods">
+                    <img src="/imgres/add-goods.png" class="function-icon">
+                    <span class="function-name">发布商品</span>
+                    <span class="badge red">新品</span>
+                </div>
+                <div class="function-item card" id="allGoods">
+                    <img src="/imgres/all-goods.png" class="function-icon">
+                    <span class="function-name">全部商品</span>
+                    <span class="badge">0</span>
+                </div>
+                <div class="function-item card" id="allOrders">
+                    <img src="/imgres/all-orders.png" class="function-icon">
+                    <span class="function-name">全部订单</span>
+                    <span class="badge yellow">0</span>
+                </div>
+                <div class="function-item card" id="goodsCategories">
+                    <img src="/imgres/categories.png" class="function-icon">
+                    <span class="function-name">商品分类</span>
+                </div>
+            </div>
+
+            <!-- 数据概览卡片 -->
+            <div class="data-overview">
+                <div class="data-card card">
+                    <div class="data-label">今日订单数</div>
+                    <div class="data-value">0</div>
+                </div>
+                <div class="data-card card">
+                    <div class="data-label">在售商品数</div>
+                    <div class="data-value">0</div>
+                </div>
+                <div class="data-card card">
+                    <div class="data-label">待发货订单数</div>
+                    <div class="data-value">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 店铺未开通状态 - 开通界面 (默认隐藏) -->
+        <div class="shop-setup" style="display:none;">
+            <!-- 店铺开通状态 -->
+            <div class="status-card card">
+                <span class="status-text">店铺未开通</span>
+                <span class="benefit-text">「前50名免费」剩余名额：35</span>
+            </div>
+
+            <!-- 店铺信息表单 -->
+            <div class="form-container card">
+                <div class="form-item">
+                    <span class="form-label">店铺名称</span>
+                    <input class="form-input" placeholder="请输入店铺名称">
+                </div>
+                <div class="form-item">
+                    <span class="form-label">店铺头像</span>
+                    <div class="avatar-upload">
+                        <img src="/imgres/logo.png" class="avatar-img">
+                        <button class="upload-btn">上传头像</button>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <span class="form-label">收款码</span>
+                    <div class="qr-upload">
+                        <img src="/imgres/q.png" class="qr-img">
+                        <button class="upload-btn">上传收款码</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 套餐选择区域 -->
+            <div class="package-container">
+                <div class="package-title">选择套餐</div>
+                <div class="package-list">
+                    <div class="package-card" data-id="1">
+                        <div class="package-name">基础版</div>
+                        <div class="package-price">¥99<span class="package-period">/月</span></div>
+                        <div class="package-desc">适合个人小店，基础功能支持</div>
+                    </div>
+                    <div class="package-card" data-id="2">
+                        <div class="package-name">进阶版</div>
+                        <div class="package-price">¥199<span class="package-period">/月</span></div>
+                        <div class="package-desc">多店员管理，营销工具</div>
+                    </div>
+                    <div class="package-card" data-id="3">
+                        <div class="package-name">专业版</div>
+                        <div class="package-price">¥399<span class="package-period">/月</span></div>
+                        <div class="package-desc">高级数据分析，专属客服</div>
+                    </div>
+                    <div class="package-card" data-id="4">
+                        <div class="package-name">企业版</div>
+                        <div class="package-price">¥999<span class="package-period">/月</span></div>
+                        <div class="package-desc">定制功能，API对接</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 开通按钮 -->
+            <button class="submit-btn btn-blue" id="openShopBtn">免费开通店铺</button>
+        </div>
+    </div>
+
+    <!-- 支付弹窗 -->
+<div class="modal-overlay" id="paymentModal" style="display:none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title">支付二维码</div>
+      <div class="close-btn" id="closePaymentModal">&times;</div>
+    </div>
+    <div class="qr-code-container">
+      <img src="/imgres/payment-qr.png" alt="收款码" class="qr-code">
+    </div>
+    <p class="payment-tip">请使用微信扫码支付</p>
+    <button class="upload-proof-btn">上传支付凭证</button>
+  </div>
+</div>
+
+<script src="/pages/mystore/mystore.js"></script>
+</body>
+</html>

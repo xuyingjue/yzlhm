@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单管理</title>
+    <link rel="stylesheet" href="management.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="page-header">
+            <button class="back-btn" onclick="window.location.href='../mystore/mystore.html'">&lt; 返回</button>
+            <h1>订单管理</h1>
+        </header>
+
+        <!-- 标签分类 -->
+        <div class="tabs">
+            <div class="tab active" data-status="all">全部订单</div>
+            <div class="tab" data-status="pending">待付款</div>
+            <div class="tab" data-status="shipping">待发货</div>
+        </div>
+
+        <!-- 订单列表 -->
+        <div class="order-list" id="order-container">
+            <!-- 订单卡片将通过JS动态生成 -->
+        </div>
+    </div>
+
+    <!-- 发货表单弹窗 -->
+    <div class="modal" id="shipping-modal">
+        <div class="modal-content">
+            <h3>发货处理</h3>
+            <div class="form-group">
+                <label>发货详情</label>
+                <input type="text" id="shipping-detail" placeholder="请输入物流信息（如：顺丰 SF123456789）">
+            </div>
+            <div class="form-group">
+                <label>发货备注（选填）</label>
+                <textarea id="shipping-note" placeholder="请输入备注信息"></textarea>
+            </div>
+            <div class="modal-buttons">
+                <button class="cancel-btn" id="cancel-shipping">取消</button>
+                <button class="confirm-btn" id="confirm-shipping">确认发货</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="management.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* 动效规范 - 全局动画样式 */
+
+/* 1. 页面切换：淡入淡出（300ms） */
+.page-fade-enter {
+    opacity: 0;
+}
+
+.page-fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+}
+
+/* 2. 按钮反馈：轻压效果（scale 0.95） */
+.btn-press {
+    transition: transform 0.2s ease;
+}
+
+.btn-press:active {
+    transform: scale(0.95);
+}
+
+/* 商品添加按钮脉冲动画 */
+.category-item.dragging {
+    opacity: 0.7;
+    transform: scale(1.05) translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(76, 217, 100, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(76, 217, 100, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(76, 217, 100, 0); }
+}
+
+.btn-press:active {
+    transform: scale(0.95);
+    transition: transform 0.2s ease;
+}
+
+/* 操作反馈动画 */
+.feedback {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: white;
+    z-index: 9999;
+}
+
+.success-feedback {
+    background-color: #4cd964;
+    animation: successScale 0.5s ease;
+}
+
+.error-feedback {
+    background-color: #ff3b30;
+    animation: shake 0.5s ease;
+}
+
+@keyframes successScale {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translate(-50%, -50%) translateX(0); }
+    20% { transform: translate(-50%, -50%) translateX(-10px); }
+    40% { transform: translate(-50%, -50%) translateX(10px); }
+    60% { transform: translate(-50%, -50%) translateX(-5px); }
+    80% { transform: translate(-50%, -50%) translateX(5px); }
+}
+
+/* 删除商品左滑消失动画 */
+.slide-out {
+    animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideOut {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); opacity: 0; }
+}
+
+.btn-press:active {
+    transform: scale(0.95);
+}
+
+/* 3. 列表加载：递进浮现 */
+.list-item-fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 4. 操作反馈动画 */
+/* 成功：✓ 动画 */
+@keyframes successCheck {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.feedback-success {
+    display: inline-block;
+    animation: successCheck 0.5s ease-out forwards;
+}
+
+/* 错误：⚠️ 震动 */
+@keyframes shakeError {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+}
+
+.feedback-error {
+    animation: shakeError 0.5s ease-in-out;
+}
+
+/* 5. 特殊动效 */
+/* 分类拖拽：半透明+位移 */
+.drag-active {
+    opacity: 0.7;
+    transform: scale(1.02) translateY(-5px);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+/* 商品添加：按钮脉冲 */
+@keyframes pulseAdd {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.btn-pulse {
+    animation: pulseAdd 0.6s ease-out;
+}
+
+/* 删除商品：左滑消失 */
+@keyframes slideDelete {
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+.item-slide-delete {
+    animation: slideDelete 0.3s ease-out forwards;
+}

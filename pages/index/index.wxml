@@ -1,0 +1,51 @@
+<view class="container">
+  <!-- 顶部轮播图 -->
+  <view class="carousel-container">
+    <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500">
+      <swiper-item wx:for="{{banners}}" wx:key="index">
+        <image src="{{item.image}}" class="carousel-image"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 商品分类入口 - 6宫格 -->
+  <view class="category-container card">
+    <view class="section-title">商品分类</view>
+    <view class="category-grid">
+      <navigator url="/pages/shop/shop?categoryId={{item.id}}" class="category-item" wx:for="{{categories}}" wx:key="id">
+        <image src="{{item.icon}}" class="category-icon"></image>
+        <text class="category-name">{{item.name}}</text>
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 店铺选择器 -->
+  <view class="shop-selector card">
+    <picker mode="selector" range="{{shopTypes}}" bindchange="bindShopTypeChange">
+      <view class="picker-content">
+        <text>当前选择: {{shopTypes[shopTypeIndex]}}</text>
+        <image src="/imgres/arrow-down.png" class="arrow-icon"></image>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 店铺推荐 -->
+  <view class="recommendation-container">
+    <view class="section-header">
+      <text class="section-title">店铺推荐</text>
+    </view>
+    <scroll-view scroll-x="true" class="shop-scroll">
+      <view class="shop-card" wx:for="{{recommendedShops}}" wx:for-item="shop" wx:key="id" wx:if="{{index < 3}}">
+        <image src="{{shop.image}}" class="shop-image"></image>
+        <view class="shop-info">
+          <text class="shop-name">{{shop.name}}</text>
+          <view class="shop-rating">
+            <image src="/imgres/star.png" class="star-icon"></image>
+            <text class="rating-text">{{shop.rating}}</text>
+            <text class="sales-text">(月销{{shop.monthSales}})</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

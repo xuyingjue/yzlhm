@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的收藏 - 依狸窝</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/pages/me/me.css">
+    <link rel="stylesheet" href="/pages/me/favorites.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="/imgres/logo.png" alt="依狸窝">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/pages/shop/shop.html">点单</a></li>
+                <li><a href="/pages/cart/cart.html">购物车</a></li>
+                <li><a href="/pages/order/order.html">订单</a></li>
+                <li><a href="/pages/mystore/mystore.html">我的店铺</a></li>
+                <li class="active"><a href="/pages/me/me.html">我的</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面内容 -->
+    <div class="container">
+        <h2 class="page-title">我的收藏</h2>
+    <div class="feedback success-feedback">✓</div>
+    <div class="feedback error-feedback">⚠️</div>
+
+    <!-- 标签页导航 -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="products">商品收藏</button>
+            <button class="tab-btn" data-tab="shops">店铺收藏</button>
+        </div>
+
+        <!-- 收藏内容区域 -->
+        <div class="tab-content active" id="products">
+            <div class="favorites-list" id="productFavorites"><!-- 商品收藏卡片将通过JS动态生成 --></div>
+            <div class="empty-state" id="productEmptyState">
+                <img src="/imgres/empty.png" alt="暂无收藏">
+                <p>您还没有收藏任何商品</p>
+            </div>
+        </div>
+
+        <div class="tab-content" id="shops">
+            <div class="favorites-list" id="shopFavorites"><!-- 店铺收藏卡片将通过JS动态生成 --></div>
+            <div class="empty-state" id="shopEmptyState">
+                <img src="/imgres/empty.png" alt="暂无收藏">
+                <p>您还没有收藏任何店铺</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/pages/me/favorites.js"></script>
+    <script src="/js/router.js"></script>
+</body>
+</html>

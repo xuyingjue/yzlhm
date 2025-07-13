@@ -1,0 +1,62 @@
+<view class="container">
+  <!-- 订单状态分类 -->
+  <view class="order-tabs">
+    <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap="switchTab" data-tab="0">待付款</view>
+    <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap="switchTab" data-tab="1">进行中</view>
+    <view class="tab-item {{currentTab == 2 ? 'active' : ''}}" bindtap="switchTab" data-tab="2">已完成</view>
+  </view>
+
+  <!-- 订单列表 -->
+  <scroll-view class="order-list" wx:if="{{orders.length > 0}}">
+    <view class="order-card card" wx:for="{{orders}}" wx:key="id">
+      <view class="order-header">
+        <text class="order-number">订单编号: {{item.orderNumber}}</text>
+        <text class="order-status">{{item.statusText}}</text>
+      </view>
+
+      <view class="order-goods">
+        <view class="goods-item" wx:for="{{item.goods}}" wx:for-item="goods" wx:key="id">
+          <image src="{{goods.image}}" class="goods-image"></image>
+          <view class="goods-info">
+            <text class="goods-name">{{goods.name}}</text>
+            <text class="goods-quantity">x{{goods.quantity}}</text>
+            <text class="goods-price">¥{{goods.price.toFixed(2)}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="order-footer">
+        <text class="total-price">总计: ¥{{item.totalPrice.toFixed(2)}}</text>
+        <button class="pay-btn btn-blue" bindtap="showPaymentQR" wx:if="{{item.status == 'pending'}}">支付</button>
+        <text class="completed-text" wx:elif="{{item.status == 'completed'}}">交易完成</text>
+        <text class="processing-text" wx:else>配送中</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 空订单提示 -->
+  <view class="empty-order" wx:if="{{orders.length == 0}}">
+    <image src="/images/empty-order.png" class="empty-icon"></image>
+    <text class="empty-text">暂无{{tabTitles[currentTab]}}订单</text>
+    <button class="goto-shop btn-blue" bindtap="gotoShop" wx:if="{{currentTab == 0}}">去下单</button>
+  </view>
+
+  <!-- 支付二维码弹窗 -->
+  <view class="modal" wx:if="{{showQR}}">
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">扫码支付</text>
+        <image src="/images/close.png" class="close-icon" bindtap="closePaymentQR"></image>
+      </view>
+      <view class="qr-container">
+        <image src="{{paymentQR}}" class="qr-code"></image>
+        <text class="qr-tip">请使用微信扫码支付</text>
+        <text class="qr-expire">二维码有效期: {{countdown}}秒</text>
+      </view>
+      <view class="amount-info">
+        <text class="amount-label">支付金额:</text>
+        <text class="amount-value">¥{{totalPrice.toFixed(2)}}</text>
+      </view>
+    </view>
+  </view>
+</view>

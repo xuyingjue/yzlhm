@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依狸窝购物车</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/pages/cart/cart.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="/imgres/logo.png" alt="依狸窝">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/pages/shop/shop.html">点单</a></li>
+                <li class="active"><a href="/pages/cart/cart.html">购物车</a></li>
+                <li><a href="/pages/order/order.html">订单</a></li>
+                <li><a href="/pages/mystore/mystore.html">我的店铺</a></li>
+                <li><a href="/pages/me/me.html">我的</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面内容 -->
+    <div class="container">
+        <!-- 购物车商品列表 -->
+        <div class="cart-list">
+      <!-- 店铺分组将通过JS动态生成 -->
+    </div>
+    <!-- 底部结算栏 -->
+    <div class="cart-footer">
+      <div class="select-all">
+        <input type="checkbox" id="selectAll" class="all-checkbox">
+        <label for="selectAll">全选</label>
+      </div>
+      <div class="total-price">
+        <span>合计:</span>
+        <span class="price">¥0.00</span>
+      </div>
+      <button class="checkout-btn" disabled><span class="icon"></span>结算(0)</button>
+    </div>
+    </div>
+
+    <script src="/pages/cart/cart.js"></script>
+    <!-- 支付弹窗 -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>支付二维码</h3>
+                <button class="close-btn" id="closePaymentModal">&times;</button>
+            </div>
+            <div class="payment-methods">
+                <button class="payment-method active" data-method="qr">二维码支付</button>
+                <button class="payment-method" data-method="balance">余额支付</button>
+            </div>
+            <div class="payment-content">
+                <div class="qr-code-container">
+                    <img src="/imgres/payment-qr.png" alt="收款码" class="qr-code">
+                </div>
+                <div class="balance-container" style="display: none;">
+                    <p>当前余额: ¥<span id="userBalance">0.00</span></p>
+                    <input type="text" class="balance-input" placeholder="请输入支付金额">
+                </div>
+            </div>
+            <p class="payment-tip">请使用微信扫码支付</p>
+            <button class="confirm-payment-btn">确认支付</button>
+        </div>
+    </div>
+
+    <script src="/js/dataManager.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品分类管理</title>
+    <link rel="stylesheet" href="category.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="page-header">
+            <button class="back-btn" onclick="window.location.href='../mystore/mystore.html'">&lt; 返回</button>
+            <h1>商品分类管理</h1>
+        </header>
+
+        <!-- 添加分类表单 -->
+        <div class="form-card">
+            <h2>添加新分类</h2>
+            <div class="form-group">
+    <label for="category-name">分类名称</label>
+    <div class="input-with-count">
+        <input type="text" id="category-name" placeholder="请输入分类名称（最多6个字）" maxlength="6">
+        <span class="char-count">0/6</span>
+    </div>
+    <div class="error-message" id="name-error"></div>
+</div>
+            <div class="form-group">
+                <label>分类图标</label>
+                <div class="icon-selector" id="icon-selector">
+                    <!-- 图标选项将通过JS动态生成 -->
+                </div>
+            </div>
+            <button class="btn-primary" id="add-category">添加分类</button>
+        </div>
+
+        <!-- 分类列表 -->
+        <div class="category-list-container">
+            <h2>分类列表</h2>
+            <div class="drag-tip">长按分类项可拖拽排序</div>
+<div class="empty-tip">
+    <img src="../../../imgres/empty-category.png" alt="暂无分类">
+    <p>暂无分类数据</p>
+    <button class="btn-primary" id="add-first-category">添加第一个分类</button>
+</div>
+            <div class="category-list" id="category-list" draggable="true">
+                <!-- 分类项将通过JS动态生成，支持拖拽排序 -->
+<div class="category-item" data-id="1" draggable="true">
+    <div class="category-icon"><img src="../../imgres/1.png" alt="图标"></div>
+    <div class="category-info">
+        <h4>宠物食品</h4>
+        <p>关联商品: 12件</p>
+    </div>
+    <div class="category-actions">
+        <button class="action-btn edit-btn" onclick="openEditModal(${category.id})">编辑</button>
+<button class="btn-danger" onclick="openDeleteModal(${category.id})">删除</button>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑分类弹窗 -->
+    <div class="modal" id="edit-modal">
+        <div class="modal-content">
+            <h3>编辑分类</h3>
+            <div class="form-group">
+                <label for="edit-category-name">分类名称</label>
+                <div class="input-with-count">
+                    <input type="text" id="edit-category-name" placeholder="请输入分类名称（最多6个字）" maxlength="6">
+                    <span class="char-count">0/6</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>分类图标</label>
+                <div class="icon-selector" id="edit-icon-selector">
+                    <!-- 图标选项将通过JS动态生成 -->
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="cancel-btn" id="cancel-edit">取消</button>
+                <button class="confirm-btn" id="confirm-edit">确认修改</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 删除确认弹窗 -->
+    <div class="modal" id="delete-modal">
+        <div class="modal-content">
+            <h3>确认删除</h3>
+            <p>此分类下有 <span id="related-products-count">0</span> 个商品，删除后将不可恢复</p>
+            <div class="modal-buttons">
+                <button class="cancel-btn" id="cancel-delete">取消</button>
+                <button class="confirm-btn danger" id="confirm-delete">确认删除</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="category.js"></script>
+</body>
+</html>

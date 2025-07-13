@@ -1,0 +1,62 @@
+<view class="container">
+  <view class="page-title">我的店铺</view>
+  
+  <!-- 店铺开通状态 -->
+  <view class="status-card card">
+    <text class="status-text">店铺未开通</text>
+    <text class="benefit-text">「前50名免费」剩余名额：{{50 - openedCount}}</text>
+  </view>
+  
+  <!-- 套餐选择卡片 -->
+  <view class="package-container" wx:if="{{openedCount >= 50}}">
+    <view class="section-title">选择套餐</view>
+    <!-- 套餐卡片列表 -->
+    <view class="package-list">
+      <!-- 套餐卡片内容 -->
+      <view class="package-card card" wx:for="{{packages}}" wx:key="id">
+        <text class="package-name">{{item.name}}</text>
+        <text class="package-price">¥{{item.price}}/{{item.period}}</text>
+        <text class="package-desc">{{item.desc}}</text>
+        <button class="select-btn btn-blue" bindtap="selectPackage" data-id="{{item.id}}">选择</button>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 店铺信息表单 -->
+  <view class="form-container card">
+    <view class="form-item">
+      <text class="form-label">店铺名称</text>
+      <input class="form-input" placeholder="请输入店铺名称" bindinput="inputShopName"></input>
+    </view>
+    <view class="form-item">
+      <text class="form-label">店铺头像</text>
+      <view class="avatar-upload">
+        <image src="{{avatarUrl}}" class="avatar-img"></image>
+        <button class="upload-btn" bindtap="uploadAvatar">上传头像</button>
+      </view>
+    </view>
+    <view class="form-item">
+      <text class="form-label">收款码</text>
+      <view class="qr-upload">
+        <image src="{{qrUrl}}" class="qr-img"></image>
+        <button class="upload-btn" bindtap="uploadQR">上传收款码</button>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 开通/保存按钮 -->
+  <button class="submit-btn btn-blue" bindtap="submitShopInfo">
+    {{openedCount < 50 ? '免费开通店铺' : '保存店铺信息'}}
+  </button>
+  
+  <!-- 商品管理入口 -->
+  <view class="manage-entry card" bindtap="gotoGoodsManage">
+    <text class="entry-title">商品管理</text>
+    <image src="/images/arrow-right.png" class="arrow-icon"></image>
+  </view>
+  
+  <!-- TODO标记 -->
+  <view class="todo-mark">
+    <text>店铺管理模块 - 后续迭代开发</text>
+  </view>
+</view>

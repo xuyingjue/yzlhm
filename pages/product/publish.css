@@ -1,0 +1,69 @@
+.container { padding: 15px; }
+
+.page-header { display: flex; align-items: center; margin-bottom: 20px; }
+.back-btn { color: #666; text-decoration: none; font-size: 16px; margin-right: 15px; }
+.page-title { font-size: 18px; font-weight: 600; color: #333; flex: 1; text-align: center; margin: 0; }
+
+.form-container { padding: 15px; }
+.form-item { margin-bottom: 25px; }
+.form-label { display: block; margin-bottom: 8px; font-size: 14px; color: #333; }
+.required { color: #f56c6c; }
+.form-control { width: 100%; }
+.form-input { width: 100%; height: 36px; padding: 0 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; box-sizing: border-box; }
+.form-select { width: 100%; height: 36px; padding: 0 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; background-color: white; }
+
+/* 字符计数 */
+.char-count { display: inline-block; color: #909399; font-size: 12px; margin-top: 5px; text-align: right; width: 100%; }
+
+/* 图片上传区域 */
+.upload-container { margin-top: 10px; }
+.upload-area { border: 1px dashed #ddd; border-radius: 4px; padding: 30px; text-align: center; cursor: pointer; }
+.upload-icon { width: 40px; height: 40px; margin-bottom: 10px; }
+.upload-text { display: block; font-size: 14px; color: #606266; margin-bottom: 5px; }
+.upload-desc { font-size: 12px; color: #909399; }
+
+.image-preview { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+.preview-item { width: 80px; height: 80px; position: relative; border-radius: 4px; overflow: hidden; }
+.preview-img { width: 100%; height: 100%; object-fit: cover; }
+.remove-img { position: absolute; top: 5px; right: 5px; background-color: rgba(0,0,0,0.5); color: white; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: pointer; }
+
+/* 规格设置区域 */
+.spec-container { margin-top: 10px; }
+.spec-group { border: 1px solid #ddd; border-radius: 4px; padding: 15px; margin-bottom: 15px; }
+.spec-header { display: flex; align-items: center; margin-bottom: 15px; }
+.spec-name { flex: 1; margin-right: 10px; }
+.btn-remove-spec { background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 5px 10px; font-size: 12px; cursor: pointer; color: #666; }
+
+.spec-values { margin-top: 10px; }
+.spec-value-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.spec-value { flex: 2; }
+.spec-price, .spec-stock { flex: 1; }
+.btn-remove-value { background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+
+.btn-add-value { margin-top: 10px; background-color: #f5f5f5; border: 1px dashed #ddd; border-radius: 4px; padding: 5px 10px; font-size: 12px; cursor: pointer; color: #666; }
+.btn-add-spec { margin-top: 10px; background-color: #f5f5f5; border: 1px dashed #ddd; border-radius: 4px; padding: 8px 15px; font-size: 14px; cursor: pointer; color: #666; }
+
+/* 库存总量 */
+.checkbox-label { display: flex; align-items: center; margin-top: 10px; font-size: 14px; color: #606266; }
+.checkbox-label input { margin-right: 5px; }
+
+/* 富文本编辑器 */
+.rich-text-editor { border: 1px solid #ddd; border-radius: 4px; min-height: 200px; }
+.detail-textarea { width: 100%; height: 200px; border: none; padding: 10px; resize: none; box-sizing: border-box; font-size: 14px; }
+.detail-textarea:focus { outline: none; }
+
+/* 表单操作按钮 */
+.form-actions { margin-top: 30px; text-align: center; }
+.submit-btn { width: 100%; height: 44px; border: none; border-radius: 22px; font-size: 16px; font-weight: 500; color: white; background-color: #4fc3f7; cursor: pointer; }
+
+/* 模态框样式 */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; }
+.modal-content { background-color: white; border-radius: 8px; width: 90%; max-width: 500px; }
+.modal-header { padding: 15px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+.modal-header h3 { margin: 0; font-size: 16px; }
+.close-modal { background: none; border: none; font-size: 20px; cursor: pointer; color: #999; }
+.crop-container { padding: 20px; text-align: center; }
+#cropImage { max-width: 100%; max-height: 300px; }
+.modal-footer { padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: flex-end; gap: 10px; }
+.btn-gray { background-color: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 8px 15px; font-size: 14px; cursor: pointer; color: #666; }
+.btn-blue { background-color: #4fc3f7; color: white; border: none; border-radius: 4px; padding: 8px 15px; font-size: 14px; cursor: pointer; }

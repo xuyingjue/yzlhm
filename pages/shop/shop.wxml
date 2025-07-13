@@ -1,0 +1,67 @@
+<view class="container">
+  <!-- 店铺选择器 -->
+  <view class="shop-selector card">
+    <picker mode="selector" range="{{shopList}}" bindchange="bindShopChange">
+      <view class="picker-content">
+        <text>当前店铺: {{shopList[shopIndex]}}</text>
+        <image src="/images/arrow-down.png" class="arrow-icon"></image>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 商家公告 -->
+  <view class="announcement card">
+    <view class="announcement-content">
+      <image src="/images/notice.png" class="notice-icon"></image>
+      <text class="announcement-text">{{announcement}}</text>
+    </view>
+    <view class="red-dot" wx:if="hasNewAnnouncement"></view>
+  </view>
+
+  <!-- 商品区域 -->
+  <view class="goods-container">
+    <!-- 左侧分类导航 -->
+    <scroll-view class="category-sidebar" scroll-y="true">
+      <view class="category-item {{currentCategory == item.id ? 'active' : ''}}" wx:for="{{categories}}" wx:key="id" bindtap="switchCategory" data-id="{{item.id}}">
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+
+    <!-- 右侧商品列表 -->
+    <scroll-view class="goods-list" scroll-y="true">
+      <view class="category-title" wx:for="{{currentGoods}}" wx:for-item="categoryGoods" wx:key="categoryId">
+        <text>{{categoryGoods.categoryName}}</text>
+      </view>
+      <view class="goods-item card" wx:for="{{currentGoods.goods}}" wx:for-item="goodsItem" wx:key="id">
+        <image src="{{goodsItem.image}}" class="goods-image"></image>
+        <view class="goods-info">
+          <text class="goods-name">{{goodsItem.name}}</text>
+          <text class="goods-desc">{{goodsItem.desc}}</text>
+          <view class="goods-footer">
+            <text class="goods-price">¥{{goodsItem.price.toFixed(2)}}</text>
+            <view class="sales-volume">月销{{goodsItem.sales}}</view>
+            <view class="add-to-cart" bindtap="addToCart" data-id="{{goodsItem.id}}">
+              <image src="/images/add-cart.png" class="cart-icon"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="merchant-info" bindtap="showMerchantInfo">
+      <image src="/images/merchant.png" class="merchant-icon"></image>
+      <text>商家信息</text>
+    </view>
+    <view class="contact-service" bindtap="contactService">
+      <image src="/images/service.png" class="service-icon"></image>
+      <text>联系客服</text>
+    </view>
+    <view class="cart-entrance" bindtap="gotoCart">
+      <image src="/images/cart.png" class="cart-icon"></image>
+      <text class="cart-count" wx:if="cartCount > 0">{{cartCount}}</text>
+    </view>
+  </view>
+</view>

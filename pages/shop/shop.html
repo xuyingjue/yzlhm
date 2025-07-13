@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依狸窝 - 点单</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/pages/shop/shop.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+    <div class="navbar-container">
+        <button class="back-btn" onclick="window.location.href='/index.html'">返回</button>
+        <h1 class="shop-title" id="shopName">店铺名称</h1>
+        <button class="favorite-btn" id="favoriteBtn">
+            <img src="/imgres/heart-empty.png" alt="收藏" class="favorite-icon">
+        </button>
+    </div>
+</nav>
+
+    <!-- 页面内容 -->
+    <div class="container">
+            <!-- 顶部控制栏 -->
+        <div class="top-control-bar card">
+            <!-- 店铺选择器 -->
+            <div class="shop-selector">
+                <div class="picker-content">
+                    <select id="shopSelect" class="shop-select">
+                        <option value="0">泉漾</option>
+                        <option value="1">小依美化铺</option>
+                        <option value="2">待入驻</option>
+                    </select>
+                    <img src="/imgres/arrow-down.png" class="arrow-icon">
+                </div>
+            </div>
+
+            <!-- 商家公告 -->
+            <div class="announcement">
+                <div class="announcement-content">
+                    <img src="/imgres/notice.png" class="notice-icon">
+                    <span class="announcement-text" id="shopAnnouncement">欢迎光临，全场商品满20元包邮！</span>
+                </div>
+                <div class="red-dot" id="announcementDot"></div>
+            </div>
+        </div>
+
+        <!-- 商家信息区 -->
+        <div class="merchant-info card">
+            <div class="contact-info">
+                <img src="/imgres/phone.png" class="contact-icon">
+                <span id="shopContact">13800138000</span>
+            </div>
+            <div class="business-hours">
+                <img src="/imgres/time.png" class="time-icon">
+                <span id="shopHours">9:00-22:00</span>
+            </div>
+
+        </div>
+
+        <!-- 商品区域 -->
+        <div class="goods-container">
+            <!-- 左侧分类导航 -->
+            <div class="category-sidebar">
+                <div class="category-item active" data-id="1" onclick="handleCategoryClick(1)">食品类</div>
+                <div class="category-item" data-id="2" onclick="handleCategoryClick(2)">饮品类</div>
+                <div class="category-item" data-id="3" onclick="handleCategoryClick(3)">周边类</div>
+            </div>
+
+            <!-- 右侧商品网格 -->
+            <div class="goods-grid">
+                <div class="category-title">主题</div>
+                <div class="goods-item card">
+                    <img src="/imgres/1.png" class="goods-image">
+                    <div class="goods-info">
+                        <span class="goods-name">简约主题</span>
+                        <span class="goods-desc">简约风格主题，清新自然</span>
+                        <div class="goods-footer">
+                            <span class="goods-price">¥19.90</span>
+                            <span class="sales-volume">月销128</span>
+                            <div class="add-to-cart" data-id="1">
+                                <img src="/imgres/add-cart.png" class="cart-icon" onclick="handleAddToCart(${goodsItem.id}, 1)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-item card">
+                    <img src="/imgres/2.png" class="goods-image">
+                    <div class="goods-info">
+                        <span class="goods-name">暗黑主题</span>
+                        <span class="goods-desc">深色模式主题，保护眼睛</span>
+                        <div class="goods-footer">
+                            <span class="goods-price">¥29.90</span>
+                            <span class="sales-volume">月销96</span>
+                            <div class="add-to-cart" data-id="2">
+                                <img src="/imgres/add-cart.png" class="cart-icon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 商品详情弹窗 -->
+    <div class="goods-modal" id="goodsModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <!-- 商品图片 -->
+            <div class="modal-image-container">
+                <img src="" alt="商品大图" class="modal-image" id="modalImage">
+            </div>
+            <!-- 商品信息 -->
+            <div class="modal-info">
+                <h3 class="modal-name" id="modalName"></h3>
+                <p class="modal-desc" id="modalDesc"></p>
+                <p class="modal-price" id="modalPrice"></p>
+                
+                <!-- 规格选择 -->
+                <div class="specification">
+                    <h4>选择规格</h4>
+                    <div class="spec-list" id="specList">
+                        <!-- 规格选项将通过JS动态生成 -->
+                    </div>
+                </div>
+                
+                <!-- 数量选择 -->
+                <div class="quantity-selector">
+                    <h4>数量</h4>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn minus" id="minusBtn">-</button>
+                        <input type="number" class="quantity-input" id="quantityInput" value="1" min="1">
+                        <button class="quantity-btn plus" id="plusBtn">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 商家名片区域 -->
+            <div class="merchant-card">
+                <button class="contact-btn">联系商家</button>
+                <button class="favorite-btn">收藏店铺</button>
+            </div>
+            
+            <!-- 加入购物车按钮 -->
+            <div class="modal-footer">
+          <button id="addToCartBtn" class="add-to-cart-btn">
+            <i class="cart-icon"></i> 加入购物车
+          </button>
+        </div>
+        </div>
+    </div>
+
+    <script src="/pages/shop/shop.js"></script>
+</body>
+</html>

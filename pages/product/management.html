@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品管理</title>
+    <link rel="stylesheet" href="management.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="page-header">
+            <button class="back-btn" onclick="window.location.href='../mystore/mystore.html'">&lt; 返回</button>
+            <h1>商品管理</h1>
+        </header>
+
+        <!-- 批量操作栏 -->
+        <div class="batch-operation">
+            <label class="checkbox-label">
+                <input type="checkbox" id="select-all">
+                <span class="checkbox-custom"></span>
+                <span class="checkbox-text">全选</span>
+            </label>
+            <button class="batch-btn" id="batch-put-on">批量上架</button>
+            <button class="batch-btn" id="batch-put-off">批量下架</button>
+        </div>
+
+        <!-- 标签分类 -->
+        <div class="tabs">
+            <div class="tab active" data-status="selling">售卖中</div>
+            <div class="tab" data-status="offline">已下架</div>
+        </div>
+
+        <!-- 商品列表 -->
+        <div class="product-list" id="product-container">
+            <!-- 商品卡片将通过JS动态生成 -->
+        </div>
+    </div>
+
+    <!-- 下架确认弹窗 -->
+    <div class="modal" id="confirm-modal">
+        <div class="modal-content">
+            <h3>确认下架商品？</h3>
+            <p>商品下架后将无法在店铺中显示</p>
+            <div class="modal-buttons">
+                <button class="cancel-btn" id="cancel-offline">取消</button>
+                <button class="confirm-btn" id="confirm-offline">确认下架</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="management.js"></script>
+</body>
+</html>

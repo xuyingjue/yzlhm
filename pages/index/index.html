@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依只狸花猫点单商城</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- 轮播图区域 -->
+        <div class="carousel-container" id="carousel">
+            <div class="carousel-wrapper" id="carouselWrapper">
+                <!-- 轮播图内容将通过JS动态生成 -->
+            </div>
+            <!-- 轮播图指示器 -->
+            <div class="carousel-indicators" id="carouselIndicators"></div>
+        <button class="carousel-control prev-arrow">❮</button>
+        <button class="carousel-control next-arrow">❯</button>
+        </div>
+
+        <!-- 商品分类网格 -->
+        <div class="category-container">
+            <h3 class="section-title">商品分类</h3>
+            <div class="category-grid" id="categoryGrid">
+                <!-- 分类项将通过JS动态生成 -->
+            </div>
+        </div>
+
+        <!-- 店铺推荐区 -->
+        <div class="recommended-shops">
+            <div class="section-header">
+                <h3 class="section-title">推荐店铺</h3>
+                <a href="#" class="more-link">更多</a>
+            </div>
+            <div class="shop-scroll" id="shopScroll">
+                <!-- 店铺卡片将通过JS动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <!-- 底部导航栏 -->
+    <div class="bottom-nav">
+      <div class="nav-item active">
+        <img src="/imgres/tabbar/home-active.png" alt="首页" class="nav-icon">
+        <div class="nav-text">首页</div>
+      </div>
+      <div class="nav-item">
+        <img src="/imgres/tabbar/menu.png" alt="点单" class="nav-icon">
+        <div class="nav-text">点单</div>
+      </div>
+      <div class="nav-item">
+        <img src="/imgres/tabbar/order.png" alt="订单" class="nav-icon">
+        <div class="nav-text">订单</div>
+      </div>
+      <div class="nav-item">
+        <img src="/imgres/tabbar/cart.png" alt="购物车" class="nav-icon">
+        <div class="nav-text">购物车</div>
+      </div>
+      <div class="nav-item">
+        <img src="/imgres/tabbar/user.png" alt="我的" class="nav-icon">
+        <div class="nav-text">我的</div>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+
+                                <span class="sales-text">月售${shop.monthSales}</span>
+                            </div>
+                        </div>
+                    `;
+                    shopScroll.appendChild(card);
+                });
+            };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发布商品</title>
+    <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.14/dist/cropper.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.css">
+    <link rel="stylesheet" href="publish.css">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <a href="/pages/mystore/mystore.html" class="back-btn">&lt; 返回</a>
+            <h1 class="page-title">发布商品</h1>
+        </div>
+
+        <form id="productForm" class="form-container card">
+            <!-- 商品标题 -->
+            <div class="form-item">
+                <label class="form-label">商品标题 <span class="required">*</span></label>
+                <div class="form-control">
+                    <input type="text" id="productTitle" class="form-input" placeholder="请输入商品标题（最多30字）" maxlength="30">
+                    <span class="char-count">0/30</span>
+                </div>
+            </div>
+
+            <!-- 商品主图 -->
+            <div class="form-item">
+                <label class="form-label">商品主图 <span class="required">*</span></label>
+                <div class="upload-container">
+                    <div class="upload-area" id="imageUpload">
+                        <img src="/imgres/upload.png" class="upload-icon">
+                        <span class="upload-text">点击上传图片</span>
+                        <span class="upload-desc">最多上传9张，首张为封面</span>
+                    </div>
+                    <div class="image-preview" id="imagePreview"></div>
+                </div>
+            </div>
+
+            <!-- 商品规格 -->
+            <div class="form-item">
+                <label class="form-label">商品规格</label>
+                <div class="spec-container" id="specContainer">
+                    <div class="spec-group">
+                        <div class="spec-header">
+                            <input type="text" class="form-input spec-name" placeholder="规格名称（如：颜色）">
+                            <button type="button" class="btn-remove-spec">删除</button>
+                        </div>
+                        <div class="spec-values">
+                            <div class="spec-value-item">
+                                <input type="text" class="form-input spec-value" placeholder="规格值（如：红色）">
+                                <input type="number" class="form-input spec-price" placeholder="价格">
+                                <input type="number" class="form-input spec-stock" placeholder="库存">
+                                <button type="button" class="btn-remove-value">-</button>
+                            </div>
+                            <button type="button" class="btn-add-value">+ 添加规格值</button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="addSpecGroup" class="btn-add-spec">+ 添加规格组</button>
+            </div>
+
+            <!-- 商品分类 -->
+            <div class="form-item">
+                <label class="form-label">商品分类 <span class="required">*</span></label>
+                <div class="form-control">
+                    <select id="categorySelect" class="form-select">
+                        <option value="">请选择分类</option>
+                        <option value="服装">服装</option>
+                        <option value="电子产品">电子产品</option>
+                        <option value="家居用品">家居用品</option>
+                        <option value="宠物餐具">宠物餐具</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 运费模板 -->
+            <div class="form-item">
+                <label class="form-label">运费模板 <span class="required">*</span></label>
+                <div class="form-control">
+                    <select id="shippingTemplate" class="form-select">
+                        <option value="">请选择运费模板</option>
+                        <option value="包邮模板">包邮模板</option>
+                        <option value="普通模板">普通模板</option>
+                        <option value="加急模板">加急模板</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 库存总量 -->
+            <div class="form-item">
+                <label class="form-label">库存总量 <span class="required">*</span></label>
+                <div class="form-control">
+                    <input type="number" id="totalStock" class="form-input" placeholder="请输入库存总量">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="autoCalculateStock"> 从规格自动计算
+                    </label>
+                </div>
+            </div>
+
+            <!-- 商品详情 -->
+            <div class="form-item">
+                <label class="form-label">商品详情 <span class="required">*</span></label>
+                <div class="form-control">
+                    <div class="rich-text-editor" id="productDetail">
+                        <div class="toolbar">
+                            <button type="button" data-command="bold"><b>B</b></button>
+                            <button type="button" data-command="italic"><i>I</i></button>
+                            <button type="button" data-command="underline"><u>U</u></button>
+                            <button type="button" data-command="insertUnorderedList"><ul><li>•</li></ul></button>
+                            <button type="button" data-command="insertOrderedList"><ol><li>1</li></ol></button>
+                        </div>
+                        <div class="editor-content" contenteditable="true" placeholder="请输入商品详情"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 提交按钮 -->
+            <div class="form-actions">
+                <button type="submit" class="btn-blue submit-btn">发布商品</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- 图片裁剪模态框 -->
+    <div class="modal" id="cropModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>裁剪图片</h3>
+                <button type="button" class="close-modal" id="closeCropModal">&times;</button>
+            </div>
+            <div class="crop-container">
+                <img id="cropImage" src="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-gray" id="cancelCrop">取消</button>
+                <button type="button" class="btn-blue" id="confirmCrop">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.5.14/dist/cropper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<script src="/js/common.js"></script>
+<script src="publish.js"></script>
+</body>
+</html>

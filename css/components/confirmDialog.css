@@ -1,0 +1,117 @@
+.confirm-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.confirm-dialog.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.confirm-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.confirm-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background-color: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.confirm-dialog.active .confirm-content {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.confirm-title {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.confirm-message {
+  margin: 0 0 24px 0;
+  font-size: 15px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.confirm-message strong {
+  color: #ff4444;
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.confirm-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.cancel-btn {
+  background-color: #f2f2f2;
+  color: #666;
+}
+
+.cancel-btn:hover {
+  background-color: #e5e5e5;
+}
+
+.confirm-btn.confirm-btn {
+  background-color: #007aff;
+  color: white;
+}
+
+.confirm-btn.confirm-btn:hover {
+  background-color: #0066cc;
+}
+
+/* 危险级别样式 */
+.confirm-dialog.danger-high .confirm-btn.confirm-btn {
+  background-color: #ff9500;
+}
+
+.confirm-dialog.danger-high .confirm-btn.confirm-btn:hover {
+  background-color: #e08300;
+}
+
+.confirm-dialog.danger-critical .confirm-btn.confirm-btn {
+  background-color: #ff3b30;
+}
+
+.confirm-dialog.danger-critical .confirm-btn.confirm-btn:hover {
+  background-color: #e60000;
+}
+
+.confirm-dialog.danger-critical .confirm-title {
+  color: #ff3b30;
+}

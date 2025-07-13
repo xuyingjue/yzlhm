@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依狸窝 - 我的</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/pages/me/me.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="/imgres/logo.png" alt="依狸窝">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/pages/shop/shop.html">点单</a></li>
+                <li><a href="/pages/cart/cart.html">购物车</a></li>
+                <li><a href="/pages/order/order.html">订单</a></li>
+                <li><a href="/pages/mystore/mystore.html">我的店铺</a></li>
+                <li class="active"><a href="/pages/me/me.html">我的</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面内容 -->
+    <div class="container">
+        <!-- 用户信息头 -->
+        <div class="user-header">
+            <img src="/imgres/user.png" class="user-avatar">
+            <div class="user-info">
+                <div class="user-name">昵称 · ID:123456</div>
+            </div>
+            <button class="edit-btn btn-press">编辑</button>
+        </div>
+
+        <!-- 功能入口 -->
+        <div class="function-grid">
+            <div class="function-item">
+                <img src="/imgres/functions/balance.png" class="function-icon">
+                <div class="balance-info">
+                    <span class="function-name">余额</span>
+                    <span class="balance-amount">¥0.00</span>
+                    <a href="/pages/me/recharge.html" class="recharge-btn btn-press">充值</a>
+                </div>
+            </div>
+            <div class="function-item">
+                <a href="/pages/order/management.html" class="function-link">
+                    <img src="/imgres/functions/order.png" class="function-icon">
+                    <span class="function-name">我的订单</span>
+                </a>
+            </div>
+            <div class="function-item" id="contactService">
+                <img src="/imgres/functions/service.png" class="function-icon">
+                <span class="function-name">联系客服</span>
+            </div>
+            <div class="function-item">
+                <a href="/pages/me/favorites.html" class="function-link">
+                    <img src="/imgres/functions/favorite.png" class="function-icon">
+                    <span class="function-name">我的收藏</span>
+                </a>
+            </div>
+            <div class="function-item">
+                <a href="/pages/me/footprint.html" class="function-link">
+                    <img src="/imgres/functions/footprint.png" class="function-icon">
+                    <span class="function-name">浏览足迹</span>
+                </a>
+            </div>
+            <div class="function-item">
+                <a href="/pages/mystore/mystore.html" class="function-link">
+                    <img src="/imgres/shop-manage.png" class="function-icon">
+                    <span class="function-name">我的店铺</span>
+                </a>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script src="/pages/me/me.js"></script>
+<!-- 客服模态框 -->
+<div id="serviceModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>联系客服</h3>
+            <span class="close-btn">&times;</span>
+        </div>
+        <div class="modal-body">
+            <!-- 在线聊天窗口 (默认隐藏) -->
+            <div id="chatWindow" class="chat-window" style="display: none;">
+                <div class="chat-messages"></div>
+                <div class="chat-input-area">
+                    <input type="text" class="chat-input" placeholder="请输入您的问题...">
+                    <button class="send-btn btn-press">发送</button>
+                </div>
+            </div>
+
+            <!-- 联系卡片 (默认隐藏) -->
+            <div id="contactCard" class="contact-card" style="display: none;">
+                <div class="contact-item">
+                    <span class="contact-icon">☎️</span>
+                    <div class="contact-info">
+                        <div class="contact-label">电话</div>
+                        <div class="contact-value">123-4567</div>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">💬</span>
+                    <div class="contact-info">
+                        <div class="contact-label">微信</div>
+                        <div class="contact-value">yizhilihua_service</div>
+                    </div>
+                </div>
+                <div class="service-time">
+                    <small>客服工作时间: 9:00-18:00</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="/js/router.js"></script>
+</body>
+</html>

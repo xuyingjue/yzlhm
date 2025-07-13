@@ -1,0 +1,68 @@
+<view class="container">
+  <!-- 用户信息头 -->
+  <view class="user-header">
+    <image src="{{avatarUrl}}" class="user-avatar"></image>
+    <view class="user-info">
+      <text class="user-name">{{userName}}</text>
+      <text class="user-id">ID: {{userId}}</text>
+    </view>
+    <button class="edit-btn" bindtap="editUserInfo">编辑</button>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="function-grid">
+    <view class="function-item" bindtap="gotoBalance">
+      <image src="/images/functions/balance.png" class="function-icon"></image>
+      <text class="function-name">余额</text>
+    </view>
+    <view class="function-item" bindtap="gotoOrders">
+      <image src="/images/functions/order.png" class="function-icon"></image>
+      <text class="function-name">订单</text>
+    </view>
+    <view class="function-item" bindtap="gotoFavorites">
+      <image src="/images/functions/favorite.png" class="function-icon"></image>
+      <text class="function-name">收藏</text>
+    </view>
+    <view class="function-item" bindtap="gotoFootprint">
+      <image src="/images/functions/footprint.png" class="function-icon"></image>
+      <text class="function-name">足迹</text>
+    </view>
+    <view class="function-item" bindtap="gotoCustomerService">
+      <image src="/images/functions/service.png" class="function-icon"></image>
+      <text class="function-name">客服</text>
+    </view>
+    <view class="function-item" bindtap="gotoSettings">
+      <image src="/images/functions/setting.png" class="function-icon"></image>
+      <text class="function-name">设置</text>
+    </view>
+  </view>
+
+  <!-- 店铺管理快捷入口 -->
+  <view class="shop-manage-entry card" bindtap="gotoMyStore">
+    <image src="/images/shop-manage.png" class="manage-icon"></image>
+    <view class="manage-info">
+      <text class="manage-title">店铺管理</text>
+      <text class="manage-desc">管理我的店铺和商品</text>
+    </view>
+    <image src="/images/arrow-right.png" class="arrow-icon"></image>
+  </view>
+
+  <!-- 数据统计卡片 -->
+  <view class="stats-container">
+    <view class="section-title">数据统计</view>
+    <view class="stats-grid card">
+      <view class="stats-item">
+        <text class="stats-value">{{todayOrders}}</text>
+        <text class="stats-name">今日订单</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{totalSales}}</text>
+        <text class="stats-name">总销售额</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-value">{{visitorCount}}</text>
+        <text class="stats-name">访客数</text>
+      </view>
+    </view>
+  </view>
+</view>
